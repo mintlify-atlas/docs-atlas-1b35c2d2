@@ -1,0 +1,175 @@
+{
+  "projectType": "api-service",
+  "projectName": "Sistema Bancario",
+  "projectDescription": "Banking system REST API with authentication, account management, transactions, and reward services",
+  "theme": "linden",
+  "primaryColor": "#1e40af",
+  "lightColor": "#3b82f6",
+  "darkColor": "#1e3a8a",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "installation"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/authentication",
+              "concepts/accounts",
+              "concepts/transactions",
+              "concepts/services"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "guides/setup-environment",
+              "guides/user-registration",
+              "guides/account-creation",
+              "guides/transactions",
+              "guides/admin-operations"
+            ]
+          },
+          {
+            "group": "Security",
+            "pages": [
+              "security/jwt-authentication",
+              "security/rate-limiting",
+              "security/role-based-access"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Authentication",
+            "pages": [
+              "api-reference/auth/register",
+              "api-reference/auth/login",
+              "api-reference/auth/verify-email",
+              "api-reference/auth/reset-password",
+              "api-reference/auth/profile"
+            ]
+          },
+          {
+            "group": "Users",
+            "pages": [
+              "api-reference/users/get-all-users",
+              "api-reference/users/update-user",
+              "api-reference/users/update-role",
+              "api-reference/users/disable-user"
+            ]
+          },
+          {
+            "group": "Accounts",
+            "pages": [
+              "api-reference/accounts/create-account",
+              "api-reference/accounts/get-accounts",
+              "api-reference/accounts/update-balance",
+              "api-reference/accounts/search-favorites",
+              "api-reference/accounts/manage-status"
+            ]
+          },
+          {
+            "group": "Transactions",
+            "pages": [
+              "api-reference/transactions/create-transaction",
+              "api-reference/transactions/get-transactions",
+              "api-reference/transactions/get-history",
+              "api-reference/transactions/cancel-transaction"
+            ]
+          },
+          {
+            "group": "Deposits & Withdrawals",
+            "pages": [
+              "api-reference/deposits/create-deposit",
+              "api-reference/withdrawals/create-withdrawal"
+            ]
+          },
+          {
+            "group": "Services",
+            "pages": [
+              "api-reference/services/create-service",
+              "api-reference/services/get-services",
+              "api-reference/services/update-service",
+              "api-reference/services/delete-service"
+            ]
+          },
+          {
+            "group": "Redeem Services",
+            "pages": [
+              "api-reference/redeem/create-redemption",
+              "api-reference/redeem/get-redemptions",
+              "api-reference/redeem/cancel-redemption"
+            ]
+          },
+          {
+            "group": "Account Requests",
+            "pages": [
+              "api-reference/requests/get-requests",
+              "api-reference/requests/approve-request",
+              "api-reference/requests/deny-request"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "JWT-based authentication with email verification",
+    "Role-based access control (USER_ROLE, ADMIN_ROLE)",
+    "Account management with AHORRO and MONETARIA types",
+    "Transaction processing with TRANSFERENCIA and DEPOSITO types",
+    "Automatic interest generation for savings accounts",
+    "Points-based reward system for service redemption",
+    "Currency conversion support (USD)",
+    "Rate limiting and security middleware",
+    "Cloudinary integration for profile images",
+    "Email notifications for transactions and verifications",
+    "Time-based transaction cancellation (60s window)",
+    "Daily transaction limits",
+    "Account request approval workflow",
+    "Favorites system with account aliases"
+  ],
+  "publicApiSurface": [
+    "POST /api/v1/auth/register - Register new user",
+    "POST /api/v1/auth/login - Authenticate user",
+    "POST /api/v1/auth/verify-email - Verify email address",
+    "POST /api/v1/auth/forgot-password - Request password reset",
+    "POST /api/v1/auth/reset-password - Reset password with token",
+    "GET /api/v1/auth/profile - Get user profile",
+    "PUT /api/v1/auth/profile - Update user profile",
+    "GET /api/v1/users - Get all users (admin only)",
+    "POST /api/v1/cuentas/create - Create new account",
+    "GET /api/v1/cuentas - Get all accounts (admin only)",
+    "GET /api/v1/cuentas/buscar/favoritos - Search favorite accounts",
+    "PUT /api/v1/cuentas/:id/saldo - Update account balance (admin only)",
+    "POST /api/v1/transactions - Create transaction",
+    "GET /api/v1/transactions - Get all transactions (admin only)",
+    "GET /api/v1/transactions/account/:id_cuenta - Get account transaction history",
+    "DELETE /api/v1/transactions/cancelar/:id - Cancel transaction (admin only)",
+    "POST /api/v1/deposits - Create deposit",
+    "POST /api/v1/withdrawals - Create withdrawal",
+    "POST /api/v1/services - Create service (admin only)",
+    "GET /api/v1/services - Get all available services",
+    "PUT /api/v1/services/:id - Update service (admin only)",
+    "DELETE /api/v1/services/:id - Delete service (admin only)",
+    "POST /api/v1/redeem_services - Redeem service with points",
+    "GET /api/v1/redeem_services - Get redemption history",
+    "DELETE /api/v1/redeem_services/:id - Cancel redemption",
+    "GET /api/v1/request_accounts - Get account requests (admin only)",
+    "PUT /api/v1/request_accounts/:id/approve - Approve account request (admin only)",
+    "PUT /api/v1/request_accounts/:id/deny - Deny account request (admin only)",
+    "GET /api/v1/health - Health check endpoint"
+  ]
+}
